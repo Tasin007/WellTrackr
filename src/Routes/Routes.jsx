@@ -8,6 +8,8 @@ import ContactUs from "../pages/ContactUs/ContactUs";
 import DietTracker from "../pages/DietTracker/DietTracker";
 import ExerciseLog from "../pages/ExerciseLog/ExerciseLog";
 import MentalWellness from "../pages/MentalWellness/MentalWellness";
+import Login from "../pages/login/Login";
+import SignUp from "../pages/SignUp/SignUp";
 
 export const router = createBrowserRouter([
   {
@@ -22,6 +24,14 @@ export const router = createBrowserRouter([
       {
         path: "/faq",
         element: <FAQPage />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <SignUp />,
       },
       {
         path: "/aboutus",
