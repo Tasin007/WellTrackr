@@ -2,7 +2,7 @@ import featuredActivitiesData from "../../../public/featuredActivitiesData.json"
 
 const FeaturedActivities = () => {
   return (
-    <section className="featured-activities py-12 my-5 bg-gray-100">
+    <section className="featured-activities py-12  bg-gray-100">
       <div className="container mx-auto">
         <h2 className="text-3xl font-semibold text-center mb-6">Featured Activities</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

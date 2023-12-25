@@ -4,7 +4,6 @@ import Home from "../pages/Home/Home";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import FAQPage from "../pages/FAQ/FAQPage";
 import AboutUs from "../pages/AboutUs/AboutUs";
-import ContactUs from "../pages/ContactUs/ContactUs";
 import DietTracker from "../pages/DietTracker/DietTracker";
 import ExerciseLog from "../pages/ExerciseLog/ExerciseLog";
 import MentalWellness from "../pages/MentalWellness/MentalWellness";
@@ -38,10 +37,6 @@ export const router = createBrowserRouter([
         element: <AboutUs />,
       },
       {
-        path: "/contact",
-        element: <ContactUs />,
-      },
-      {
         path: "/dietTracker",
         element: <DietTracker />,
       },
@@ -51,7 +46,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/mentalWellness",
-        element: <MentalWellness/>,
+        element: <MentalWellness />,
       },
     ],
   },

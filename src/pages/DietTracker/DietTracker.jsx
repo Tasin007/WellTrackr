@@ -1,11 +1,12 @@
-import React from 'react';
+import DietBanner from "./DietBanner";
+
 
 const DietTracker = () => {
-  return (
-    <div>
-      <h1>tasin</h1>
-    </div>
-  );
+    return (
+        <div>
+            <DietBanner></DietBanner>
+        </div>
+    );
 };
 
 export default DietTracker;

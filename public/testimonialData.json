@@ -1,0 +1,31 @@
+[
+    {
+      "id": 1,
+      "quote": "WellTrackr has transformed my health journey. The exercise tracking is so convenient, and the healthy recipes are delicious!",
+      "author": "Alice Johnson",
+      "position": "Fitness Enthusiast",
+      "imageURL": "https://img.freepik.com/free-photo/portrait-smiling-blonde-woman_23-2148316635.jpg?w=740&t=st=1703495637~exp=1703496237~hmac=7cf74f568f7c52d29f63a4a4b570bdbef339b65630c15841ad82094786e16235"
+    },
+    {
+      "id": 2,
+      "quote": "I've never been so motivated to stay active. WellTrackr's meditation routines help me relax, and the mental wellness tips are fantastic.",
+      "author": "Willy Smith",
+      "position": "Mental Health Advocate",
+      "imageURL": "https://img.freepik.com/free-photo/pleasant-looking-caucasian-female-with-long-hair-wearing-yellow-casual-shirt-having-good-mood-looking-happily-camera_176532-11558.jpg?w=740&t=st=1703495702~exp=1703496302~hmac=da991cd25bc36b10f82fcad620e330aa92339548e822a6f0f777a6d85dd16d0c"
+    },
+    {
+      "id": 3,
+      "quote": "As a nutritionist, I recommend WellTrackr to all my clients. The diet tracking feature is invaluable for maintaining a healthy lifestyle.",
+      "author": "Em Davis",
+      "position": "Certified Nutritionist",
+      "imageURL": "https://img.freepik.com/free-photo/close-up-portrait-curly-handsome-european-male_176532-8133.jpg?w=740&t=st=1703495728~exp=1703496328~hmac=3de9f11fc7b8610393efa914e1176ce95b0344fa97db3de15f29656d92a4b578"
+    },
+    {
+      "id": 4,
+      "quote": "WellTrackr's community support is amazing. It's like having a personal wellness coach in my pocket!",
+      "author": "Daniel Lee",
+      "position": "Wellness Enthusiast",
+      "imageURL": "https://img.freepik.com/free-photo/close-up-portrait-young-bearded-man-white-shirt-jacket-posing-camera-with-broad-smile-isolated-gray_171337-629.jpg?w=740&t=st=1703495750~exp=1703496350~hmac=708fe913056804dc636e4c051653982bef7a88d1f6d339b64b00277fe2a55adb"
+    }
+  ]
+  
