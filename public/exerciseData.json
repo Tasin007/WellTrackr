@@ -1,0 +1,135 @@
+{
+    "beginner": [
+      {
+        "id": 1,
+        "name": "Abs Beginner",
+        "description": "Start with basic abdominal exercises for beginners.",
+        "category": "beginner",
+        "image": "abs-beginner.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Chest Beginner",
+        "description": "Introductory chest exercises for beginners.",
+        "category": "beginner",
+        "image": "chest-beginner.jpg"
+      },
+      {
+        "id": 3,
+        "name": "Arm Beginner",
+        "description": "Simple arm exercises suitable for beginners.",
+        "category": "beginner",
+        "image": "arm-beginner.jpg"
+      },
+      {
+        "id": 4,
+        "name": "Leg Beginner",
+        "description": "Basic leg workouts tailored for beginners.",
+        "category": "beginner",
+        "image": "leg-beginner.jpg"
+      },
+      {
+        "id": 5,
+        "name": "Shoulder Beginner",
+        "description": "Start with easy shoulder exercises for beginners.",
+        "category": "beginner",
+        "image": "shoulder-beginner.jpg"
+      },
+      {
+        "id": 6,
+        "name": "Back Beginner",
+        "description": "Introductory back exercises for beginners.",
+        "category": "beginner",
+        "image": "back-beginner.jpg"
+      }
+    ],
+    "intermediate": [
+      {
+        "id": 1,
+        "name": "Abs Intermediate",
+        "description": "Intermediate-level abdominal exercises for core strength.",
+        "category": "intermediate",
+        "image": "abs-intermediate.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Chest Intermediate",
+        "description": "Intermediate chest exercises to build upper body strength.",
+        "category": "intermediate",
+        "image": "chest-intermediate.jpg"
+      },
+      {
+        "id": 3,
+        "name": "Arm Intermediate",
+        "description": "Intermediate arm workouts to tone and strengthen your arms.",
+        "category": "intermediate",
+        "image": "arm-intermediate.jpg"
+      },
+      {
+        "id": 4,
+        "name": "Leg Intermediate",
+        "description": "Intermediate leg exercises for lower body strength and endurance.",
+        "category": "intermediate",
+        "image": "leg-intermediate.jpg"
+      },
+      {
+        "id": 5,
+        "name": "Shoulder Intermediate",
+        "description": "Intermediate shoulder exercises to improve shoulder strength and stability.",
+        "category": "intermediate",
+        "image": "shoulder-intermediate.jpg"
+      },
+      {
+        "id": 6,
+        "name": "Back Intermediate",
+        "description": "Intermediate back exercises for a strong and healthy back.",
+        "category": "intermediate",
+        "image": "back-intermediate.jpg"
+      }
+    ],
+    "advanced": [
+      {
+        "id": 1,
+        "name": "Abs Advanced",
+        "description": "Advanced-level abdominal exercises for a strong core.",
+        "category": "advanced",
+        "image": "abs-advanced.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Chest Advanced",
+        "description": "Advanced chest exercises to sculpt your chest muscles.",
+        "category": "advanced",
+        "image": "chest-advanced.jpg"
+      },
+      {
+        "id": 3,
+        "name": "Arm Advanced",
+        "description": "Advanced arm workouts for advanced strength and definition.",
+        "category": "advanced",
+        "image": "arm-advanced.jpg"
+      },
+      {
+        "id": 4,
+        "name": "Leg Advanced",
+        "description": "Advanced leg exercises for athletes and advanced fitness enthusiasts.",
+        "category": "advanced",
+        "image": "leg-advanced.jpg"
+      },
+      {
+        "id": 5,
+        "name": "Shoulder Advanced",
+        "description": "Advanced shoulder exercises for athletes and advanced lifters.",
+        "category": "advanced",
+        "image": "shoulder-advanced.jpg"
+      },
+      {
+        "id": 6,
+        "name": "Back Advanced",
+        "description": "Advanced back exercises for elite athletes and advanced trainees.",
+        "category": "advanced",
+        "image": "back-advanced.jpg"
+      }
+    ]
+  }
+  
