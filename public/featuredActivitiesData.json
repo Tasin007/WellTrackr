@@ -1,45 +1,44 @@
 [
-    {
+  {
       "id": 1,
-      "title": "Morning Yoga",
-      "imageUrl": "https://i.ibb.co/fXcYsNp/Morning-Yoga.jpg",
-      "shortDescription": "Start your day with a refreshing yoga routine.",
-      "link": "/yoga"
-    },
-    {
+      "title": "Body Building",
+      "imageUrl": "https://i.ibb.co/bgwk4R1/Shoulder-Advanced.jpg",
+      "shortDescription": "Build a strong and sculpted physique with advanced workouts.",
+      "link": "/bodybuilding"
+  },
+  {
       "id": 2,
-      "title": "Meditation",
-      "imageUrl": "https://i.ibb.co/98pb3BZ/Meditation.jpg",
-      "shortDescription": "Find inner peace and reduce stress through meditation.",
-      "link": "/meditation"
-    },
-    {
+      "title": "Masculation",
+      "imageUrl": "https://i.ibb.co/6NT7F7X/Back-Intermediate.jpg",
+      "shortDescription": "Achieve masculine fitness goals through intermediate training.",
+      "link": "/masculation"
+  },
+  {
       "id": 3,
-      "title": "Healthy Recipes",
-      "imageUrl": "https://i.ibb.co/1XcsFCd/Healthy-Recipes.jpg",
-      "shortDescription": "Explore delicious and nutritious recipes for a balanced diet.",
-      "link": "/recipes"
-    },
-    {
+      "title": "Fitness Running",
+      "imageUrl": "https://i.ibb.co/s1dmPBj/Fitness-Running.jpg",
+      "shortDescription": "Enhance your cardiovascular health with running routines.",
+      "link": "/fitness"
+  },
+  {
       "id": 4,
       "title": "Cardio Workouts",
       "imageUrl": "https://i.ibb.co/2Mrn7fP/Cardio-Workouts.jpg",
-      "shortDescription": "Boost your fitness with high-intensity cardio workouts.",
+      "shortDescription": "Get your heart pumping with high-intensity cardio sessions.",
       "link": "/cardio"
-    },
-    {
+  },
+  {
       "id": 5,
-      "title": "Mindfulness Exercises",
-      "imageUrl": "https://i.ibb.co/JB58SD3/Mindfulness-Exercises.jpg",
-      "shortDescription": "Practice mindfulness for improved mental well-being.",
-      "link": "/mindfulness"
-    },
-    {
+      "title": "Weight Lifting",
+      "imageUrl": "https://i.ibb.co/FbPQzvt/Weight-Lifting.jpg",
+      "shortDescription": "Lift weights to build strength and improve mental well-being.",
+      "link": "/weightlifting"
+  },
+  {
       "id": 6,
-      "title": "Healthy Diet Tips",
-      "imageUrl": "https://i.ibb.co/k2yztD1/Healthy-Diet-Tips.jpg",
-      "shortDescription": "Learn essential tips for maintaining a healthy diet.",
-      "link": "/diet-tips"
-    }
-  ]
-  
+      "title": "Classic Yoga",
+      "imageUrl": "https://i.ibb.co/fXcYsNp/Morning-Yoga.jpg",
+      "shortDescription": "Start your day with a refreshing yoga routine.",
+      "link": "/yoga"
+  }
+]

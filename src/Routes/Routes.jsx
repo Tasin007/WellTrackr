@@ -4,11 +4,9 @@ import Home from "../pages/Home/Home";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import FAQPage from "../pages/FAQ/FAQPage";
 import AboutUs from "../pages/AboutUs/AboutUs";
-import DietTracker from "../pages/DietTracker/DietTracker";
-import ExerciseLog from "../pages/ExerciseLog/ExerciseLog";
-import MentalWellness from "../pages/MentalWellness/MentalWellness";
 import Login from "../pages/login/Login";
 import SignUp from "../pages/SignUp/SignUp";
+import UserDashboard from "../pages/UserDashboard/UserDashboard";
 
 export const router = createBrowserRouter([
   {
@@ -37,16 +35,8 @@ export const router = createBrowserRouter([
         element: <AboutUs />,
       },
       {
-        path: "/dietTracker",
-        element: <DietTracker />,
-      },
-      {
-        path: "/exerciseLog",
-        element: <ExerciseLog />,
-      },
-      {
-        path: "/mentalWellness",
-        element: <MentalWellness />,
+        path: "/profile",
+        element: <UserDashboard />,
       },
     ],
   },
