@@ -33,6 +33,11 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const handleCloseMenu = () => {
+    // Close the mobile dropdown menu
+    setIsMenuOpen(false);
+  };
+
   return (
     <div>
       <header className="bg-purple-950 shadow-sm">
@@ -153,88 +158,97 @@ const Navbar = () => {
               )}
             </div>
           </div>
-          <div
-            className={`${
-              isMenuOpen ? "block" : "hidden"
-            } md:hidden absolute top-0 inset-x-0 p-2 transition transform origin-top-right bg-white`}
-          >
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              <NavLink
-                to="/"
-                className="block px-3 py-2 rounded-md text-base font-medium text-black hover:text-gray-900 hover:bg-gray-50"
-              >
-                Home
-              </NavLink>
-              <NavLink
-                to="/gallery"
-                className="block px-3 py-2 rounded-md text-base font-medium text-black hover:text-gray-900 hover:bg-gray-50"
-              >
-                Gallery
-              </NavLink>
-              <NavLink
-                to="/trainer"
-                className="block px-3 py-2 rounded-md text-base font-medium text-black hover:text-gray-900 hover:bg-gray-50"
-              >
-                Trainer
-              </NavLink>
-              <NavLink
-                to="/classes"
-                className="block px-3 py-2 rounded-md text-base font-medium text-black hover:text-gray-900 hover:bg-gray-50"
-              >
-                Classes
-              </NavLink>
-              <NavLink
-                to="/dashboard"
-                className="block px-3 py-2 rounded-md text-base font-medium text-black hover:text-gray-900 hover:bg-gray-50"
-              >
-                Dashboard
-              </NavLink>
-              <NavLink
-                to="/community"
-                className="block px-3 py-2 rounded-md text-base font-medium text-black hover:text-gray-900 hover:bg-gray-50"
-              >
-                Community
-              </NavLink>
-            </div>
-            {user ? (
-              <div className="pt-4 pb-3 border-t border-gray-200">
-                <div className="flex items-center px-5">
-                  {userProfile.photo && (
-                    <img
-                      className="h-10 w-10 rounded-full"
-                      src={userProfile.photo}
-                      alt="User"
-                    />
-                  )}
-                  <div className="ml-3">
-                    <div className="text-base font-medium text-gray-800">
-                      {userProfile.name}
-                    </div>
-                    <div className="text-sm font-medium text-gray-500">
-                      {user.email}
-                    </div>
+        </nav>
+      </header>
+      {/* Mobile Dropdown Menu */}
+      {isMenuOpen && (
+        <div className="md:hidden absolute top-0 inset-x-0 p-2 transition transform origin-top-right bg-white">
+          <div className="px-2 pt-2 pb-3 space-y-1">
+            <NavLink
+              to="/"
+              className="block px-3 py-2 rounded-md text-base font-medium text-black hover:text-gray-900 hover:bg-gray-50"
+            >
+              Home
+            </NavLink>
+            <NavLink
+              to="/gallery"
+              className="block px-3 py-2 rounded-md text-base font-medium text-black hover:text-gray-900 hover:bg-gray-50"
+            >
+              Gallery
+            </NavLink>
+            <NavLink
+              to="/trainer"
+              className="block px-3 py-2 rounded-md text-base font-medium text-black hover:text-gray-900 hover:bg-gray-50"
+            >
+              Trainer
+            </NavLink>
+            <NavLink
+              to="/classes"
+              className="block px-3 py-2 rounded-md text-base font-medium text-black hover:text-gray-900 hover:bg-gray-50"
+            >
+              Classes
+            </NavLink>
+            <NavLink
+              to="/dashboard"
+              className="block px-3 py-2 rounded-md text-base font-medium text-black hover:text-gray-900 hover:bg-gray-50"
+            >
+              Dashboard
+            </NavLink>
+            <NavLink
+              to="/community"
+              className="block px-3 py-2 rounded-md text-base font-medium text-black hover:text-gray-900 hover:bg-gray-50"
+            >
+              Community
+            </NavLink>
+          </div>
+          {user ? (
+            <div className="pt-4 pb-3 border-t border-gray-200">
+              <div className="flex items-center px-5">
+                {userProfile.photo && (
+                  <img
+                    className="h-10 w-10 rounded-full"
+                    src={userProfile.photo}
+                    alt="User"
+                  />
+                )}
+                <div className="ml-3">
+                  <div className="text-base font-medium text-gray-800">
+                    {userProfile.name}
+                  </div>
+                  <div className="text-sm font-medium text-gray-500">
+                    {user.email}
                   </div>
                 </div>
-                <div className="mt-3 space-y-1">
-                  <button
-                    onClick={handleLogOut}
-                    className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
-                  >
-                    Log Out
-                  </button>
-                </div>
               </div>
-            ) : (
+              <div className="mt-3 space-y-1">
+                <button
+                  onClick={handleLogOut}
+                  className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+                >
+                  Log Out
+                </button>
+              </div>
+              <div className="mt-3 space-y-1">
+                <button
+                  onClick={handleCloseMenu}
+                  className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          ) : (
+            <div className="mt-3 space-y-1">
               <NavLink
                 to="/login"
                 className="block w-full text-left px-4 py-2 rounded-md text-base font-medium text-gray-700 hover:text-white hover:bg-gray-50"
               >
                 Sign In
               </NavLink>
-            )}
-          </div>
-        </nav>
-      </header>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 };

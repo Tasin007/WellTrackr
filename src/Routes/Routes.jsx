@@ -7,6 +7,10 @@ import AboutUs from "../pages/AboutUs/AboutUs";
 import Login from "../pages/login/Login";
 import SignUp from "../pages/SignUp/SignUp";
 import UserDashboard from "../pages/UserDashboard/UserDashboard";
+import Gallery from "../pages/Gallery/Gallery";
+import Trainer from "../pages/Trainer/Trainer";
+import Classes from "../pages/Classes/Classes";
+import Community from "../pages/Community/Community";
 
 export const router = createBrowserRouter([
   {
@@ -35,7 +39,23 @@ export const router = createBrowserRouter([
         element: <AboutUs />,
       },
       {
-        path: "/profile",
+        path: "/gallery",
+        element: <Gallery />,
+      },
+      {
+        path: "/trainer",
+        element: <Trainer />,
+      },
+      {
+        path: "/classes",
+        element: <Classes />,
+      },
+      {
+        path: "/community",
+        element: <Community />,
+      },
+      {
+        path: "/dashboard",
         element: <UserDashboard />,
       },
     ],
