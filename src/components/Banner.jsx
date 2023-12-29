@@ -147,7 +147,7 @@ const Banner = () => {
           <div>
             <img
               className="object-cover w-[550px] h-[300px] md:h-[400px] lg:h-[500px] rounded-md shadow-lg"
-              src="/src/assets/Banner.jpg"
+              src="https://i.ibb.co/KDKStcv/Banner.jpg"
               alt="Health and Wellness Image"
             />
           </div>

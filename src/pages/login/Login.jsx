@@ -1,179 +1,212 @@
+import { useContext, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
-import { useContext } from "react";
 import { AuthContext } from "../../AuthContext/AuthProvider";
 import toast from "react-hot-toast";
+import axios from "axios";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
+  const [passwordVisible, setPasswordVisible] = useState(false);
 
-    const {signIn, signInWithGoogle} = useContext(AuthContext);
-    const navigate = useNavigate();
-    const location = useLocation();
+  const { signIn, signInWithGoogle, resetPassword } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const emailRef = useRef(null);
 
-    const handleLogIn = async (e) => {
-        e.preventDefault();
-        const form = new FormData(e.target);
-        const email = form.get("email");
-        const password = form.get("password");
+  const togglePasswordVisibility = () => {
+    setPasswordVisible(!passwordVisible);
+  };
 
-        const user = {
-            email,
-            password,
-        }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = new FormData(e.target);
+    const email = form.get("email");
+    const password = form.get("password");
+    signIn(email, password)
+      .then(() => {
+        toast.success("User Signed in successfully");
+        navigate(location?.state ? location?.state : "/");
+      })
+      .catch((err) => {
+        toast.error(err.message);
+      });
+  };
 
-        console.log(user);
-        try {
-            await signIn(email, password);
-            toast.success("User Login successfully");
-            navigate(location?.state ? location?.state : "/");
-        } catch (error) {
-            toast.error(error.message);
-        }
+  const handleForgetPassword = () => {
+    const email = emailRef.current.value;
+    if (!email) {
+      return toast.error("Please enter your email");
     }
 
-    const handleGoogleLogin = async () => {
-        try {
-            await signInWithGoogle();
-            toast.success("User Login successfully");
-            navigate(location?.state ? location?.state : "/");
-        }
-        catch (error) {
+    resetPassword(email)
+      .then(() => {
+        toast.success("Password reset link sent to your email");
+      })
+      .catch((err) => {
+        toast.error(err.message);
+      });
+  };
+
+  const handleGoogleLogin = () => {
+    signInWithGoogle()
+      .then((res) => {
+        const user = res.user;
+        const name = user?.displayName;
+        const email = user?.email;
+        const image = user?.photoURL;
+        const userInfo = { name, email, image };
+        axios
+          .post("http://localhost:5000/api/v1/users", userInfo)
+          .then(() => {
+            toast.success("User successfully logged in");
+            navigate(location?.state ? location.state : "/");
+          })
+          .catch((error) => {
             toast.error(error.message);
-        }
-    }
+          });
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
+  };
   return (
-    <>
-      <motion.div
-        className="box"
-        initial={{ opacity: 0, scale: 0.5 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{
-          duration: 0.3,
-          ease: [0, 0.71, 0.2, 1.01],
-          scale: {
-            type: "spring",
-            damping: 5,
-            stiffness: 100,
-            restDelta: 0.001,
-          },
-        }}
-      >
-        <div className="max-w-2xl mx-auto my-40">
-          <div className="mt-7 bg-white border border-gray-200 rounded-xl shadow-sm">
-            <div className="p-4 sm:p-7">
-              <div className="text-center">
-                <h1 className="block text-2xl font-bold text-gray-800">
-                  Log in
-                </h1>
-                <p className="mt-2 text-sm text-gray-600">
-                  Don&apos;t have an account?
-                  <Link
-                    to="/register"
-                    className="text-[#4D96B3] decoration-2 hover:underline font-medium"
-                  >
-                    Register here
-                  </Link>
-                </p>
-              </div>
-
-              <div className="mt-5">
-                <button
+    <div>
+      <Helmet>
+        <title>WellTrackr | Login </title>
+      </Helmet>
+      <div className="pt-20 text-gray-900 flex justify-center">
+        <div className="max-w-7xl mx-auto m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
+          <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
+            <div className="flex gap-6 justify-center items-center">
+              <img
+                src="https://i.ibb.co/5xZX6GX/Favicon.png"
+                className="w-1/4"
+              />
+              <p className="font-bold text-4xl font-mono">
+                WellTrackr <br />  LogIn
+              </p>
+            </div>
+            <div className="mt-12 flex flex-col items-center">
+              <div className="w-full flex-1 mt-8">
+                <div className="flex flex-col items-center">
+                  <button
                     onClick={handleGoogleLogin}
-                  type="button"
-                  className="w-full py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-[#4D96B3] transition-all text-sm"
-                >
-                  <svg
-                    className="w-4 h-auto"
-                    width="46"
-                    height="47"
-                    viewBox="0 0 46 47"
-                    fill="none"
+                    className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-purple-500 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline"
                   >
-                    <path
-                      d="M46 24.0287C46 22.09 45.8533 20.68 45.5013 19.2112H23.4694V27.9356H36.4069C36.1429 30.1094 34.7347 33.37 31.5957 35.5731L31.5663 35.8669L38.5191 41.2719L38.9885 41.3306C43.4477 37.2181 46 31.1669 46 24.0287Z"
-                      fill="#4285F4"
-                    />
-                    <path
-                      d="M23.4694 47C29.8061 47 35.1161 44.9144 39.0179 41.3012L31.625 35.5437C29.6301 36.9244 26.9898 37.8937 23.4987 37.8937C17.2793 37.8937 12.0281 33.7812 10.1505 28.1412L9.88649 28.1706L2.61097 33.7812L2.52296 34.0456C6.36608 41.7125 14.287 47 23.4694 47Z"
-                      fill="#34A853"
-                    />
-                    <path
-                      d="M10.1212 28.1413C9.62245 26.6725 9.32908 25.1156 9.32908 23.5C9.32908 21.8844 9.62245 20.3275 10.0918 18.8588V18.5356L2.75765 12.8369L2.52296 12.9544C0.909439 16.1269 0 19.7106 0 23.5C0 27.2894 0.909439 30.8731 2.49362 34.0456L10.1212 28.1413Z"
-                      fill="#FBBC05"
-                    />
-                    <path
-                      d="M23.4694 9.07688C27.8699 9.07688 30.8622 10.9863 32.5344 12.5725L39.1645 6.11C35.0867 2.32063 29.8061 0 23.4694 0C14.287 0 6.36607 5.2875 2.49362 12.9544L10.0918 18.8588C11.9987 13.1894 17.25 9.07688 23.4694 9.07688Z"
-                      fill="#EB4335"
-                    />
-                  </svg>
-                  Log in with Google
-                </button>
-
-                <div className="py-3 flex items-center text-xs text-gray-400 uppercase before:flex-[1_1_0%] before:border-t before:border-gray-200 before:mr-6 after:flex-[1_1_0%] after:border-t after:border-gray-200 after:ml-6 ">
-                  Or
+                    <div className="bg-white p-2 rounded-full">
+                      <svg className="w-4" viewBox="0 0 533.5 544.3">
+                        <path
+                          d="M533.5 278.4c0-18.5-1.5-37.1-4.7-55.3H272.1v104.8h147c-6.1 33.8-25.7 63.7-54.4 82.7v68h87.7c51.5-47.4 81.1-117.4 81.1-200.2z"
+                          fill="#4285f4"
+                        />
+                        <path
+                          d="M272.1 544.3c73.4 0 135.3-24.1 180.4-65.7l-87.7-68c-24.4 16.6-55.9 26-92.6 26-71 0-131.2-47.9-152.8-112.3H28.9v70.1c46.2 91.9 140.3 149.9 243.2 149.9z"
+                          fill="#34a853"
+                        />
+                        <path
+                          d="M119.3 324.3c-11.4-33.8-11.4-70.4 0-104.2V150H28.9c-38.6 76.9-38.6 167.5 0 244.4l90.4-70.1z"
+                          fill="#fbbc04"
+                        />
+                        <path
+                          d="M272.1 107.7c38.8-.6 76.3 14 104.4 40.8l77.7-77.7C405 24.6 339.7-.8 272.1 0 169.2 0 75.1 58 28.9 150l90.4 70.1c21.5-64.5 81.8-112.4 152.8-112.4z"
+                          fill="#ea4335"
+                        />
+                      </svg>
+                    </div>
+                    <span className="ml-4 text-white">Sign In with Google</span>
+                  </button>
                 </div>
 
-                <form onSubmit={handleLogIn}>
-                  <div className="grid gap-y-4">
-                    <div>
-                      <label htmlFor="email" className="block text-sm mb-2">
-                        Email address
-                      </label>
-                      <div className="relative">
-                        <input
-                          type="email"
-                          id="email"
-                          name="email"
-                          className="py-3 px-4 block w-full border rounded-md text-sm focus:border-[#4D96B3] focus:ring-[#4D96B3]"
-                          required
-                          placeholder="Enter your email"
-                        />
-                      </div>
-                    </div>
+                <div className="my-12 border-b text-center">
+                  <div className="leading-none px-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform translate-y-1/2">
+                    Or sign In with Valid E-mail
+                  </div>
+                </div>
 
-                    <div>
-                      <label htmlFor="password" className="block text-sm mb-2">
-                        Password
-                      </label>
-                      <div className="relative">
-                        <input
-                          type="password"
-                          id="password"
-                          name="password"
-                          className="py-3 px-4 block w-full border rounded-md text-sm focus:border-[#4D96B3] focus:ring-[#4D96B3]"
-                          required
-                          placeholder="Enter your password"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="flex items-center">
-                      <div className="ml-3">
-                        <label htmlFor="remember-me" className="text-sm">
-                          <Link
-                            className="text-[#4D96B3] decoration-2 hover:underline font-medium"
-                            to="#"
-                          >
-                            Forget password?
-                          </Link>
-                        </label>
-                      </div>
-                    </div>
-
-                    <button
-                      type="submit"
-                      className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-[#4D96B3] text-white hover:bg-[#4D96C5] focus:outline-none focus:ring-2 focus:ring-[#4D96B3] focus:ring-offset-2 transition-all text-sm"
+                <form onSubmit={handleSubmit} className="mx-auto max-w-full">
+                  <div className="mx-auto max-w-xs">
+                    <input
+                      className="w-full px-4 py-3 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
+                      type="email"
+                      ref={emailRef}
+                      placeholder="Enter valid email"
+                      name="email"
+                    />
+                    <input
+                      className="relative w-full px-4 py-3 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
+                      type={passwordVisible ? "text" : "password"}
+                      placeholder="Enter your password"
+                      name="password"
+                    />
+                    {/* <span
+                      onClick={togglePasswordVisibility}
+                      className="absolute right-16 bottom-[36%] cursor-pointer"
                     >
-                      Log in
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-4 w-4 text-gray-600"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                        />
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                        />
+                      </svg>
+                    </span> */}
+                    <div>
+                      <a
+                        className="mt-2 text-xs text-gray-500 float-left mb-2"
+                        onClick={handleForgetPassword}
+                      >
+                        Forgot Password?
+                      </a>
+                    </div>
+                    <button className="mt-5 tracking-wide font-semibold bg-purple-500 text-white-500 w-full py-3 rounded-lg hover:bg-purple-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
+                      <span className="ml-2 text-white">Sign In</span>
                     </button>
+
+                    <p className="text-sm text-gray-500">
+                      New here?
+                      <Link to="/register">
+                        <span className="underline">Signup</span>
+                      </Link>{" "}
+                      from here
+                    </p>
+
+                    <p className="mt-6 text-xs text-gray-600 text-center">
+                      I agree to abide by DreamSpace
+                      <span className="ml-1">
+                        Terms of Service and its
+                      </span>{" "}
+                      Privacy Policy.
+                      <span className="border-b border-gray-500 border-dotted"></span>
+                    </p>
                   </div>
                 </form>
               </div>
             </div>
           </div>
+          <div className="flex-1 bg-white  text-center hidden lg:flex">
+            <div
+              className="w-full h-auto bg-gray-400 hidden lg:block  bg-cover rounded-lg"
+              style={{
+                backgroundImage: `url('https://i.ibb.co/605Lr0N/img4.jpg')`,
+              }}
+            ></div>
+          </div>
         </div>
-      </motion.div>
-    </>
+      </div>
+    </div>
   );
 };
 

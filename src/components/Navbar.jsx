@@ -48,7 +48,7 @@ const Navbar = () => {
                 <span className="sr-only">WellTrackr</span>
                 <img
                   className="h-8 w-auto sm:h-10 pl-9"
-                  src="/src/assets/Favicon.png"
+                  src="https://i.ibb.co/5xZX6GX/Favicon.png"
                   alt="Logo"
                 />
                 <h1 className="text-xl text-white inline-block ml-2">

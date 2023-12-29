@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 
 
 const FAQPage = () => {
@@ -31,6 +32,9 @@ const FAQPage = () => {
   return (
 
     <div>
+      <Helmet>
+        <title>WellTrackr | FAQ </title>
+      </Helmet>
       
       <div className="max-w-[85rem] mx-auto px-4 py-12 sm:px-6 lg:px-8">
       <h1 className="text-3xl font-bold text-gray-800 mb-8">

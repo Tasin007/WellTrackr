@@ -1,166 +1,170 @@
-import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../AuthContext/AuthProvider";
 import toast from "react-hot-toast";
+import axios from "axios";
+import useAuth from "../../Hooks/useAuth";
+import { Helmet } from "react-helmet-async";
 
-const SignUp = () => {
+const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
+const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
-    const { createUser, userUpdateProfile} = useContext(AuthContext);
-    const navigate = useNavigate();
+const Register = () => {
+  const { createUser, userUpdateProfile } = useAuth();
+  const navigate = useNavigate();
 
-    const handleRegister = (e) => {
-        e.preventDefault();
-        const form = new FormData(e.target);
-        const name = form.get("name");
-        const photo = form.get('photo');
-        const email = form.get("email");
-        const password = form.get("password");
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    const form = new FormData(e.currentTarget);
 
-        const user = {
-            name,
-            photo,
-            email,
-            password,
-        }
-        console.log(user);
+    const name = form.get("name");
+    const email = form.get("email");
+    const password = form.get("password");
+    const image = form.get("image");
 
-        createUser(email, password)
-        .then(res => {
-            userUpdateProfile(name, photo)
-            .then(res => {
-                toast.success('User created successfully');
-                navigate('/login');
-            })
-            .catch(err=>{
-                toast.error(err.message);
-            });
+    console.log(image, name, email, password);
 
-        })
-        .catch(err=>{
-            toast.error(err.message);
-        });
-        
+    const imgbbResponse = await axios.post(image_hosting_api, form, {
+      headers: { "Content-Type": "multipart/form-data" },
+    });
+
+    const imageURL = imgbbResponse.data?.data?.url;
+    console.log("image uploaded to imgbb", imgbbResponse?.data);
+
+    try {
+      const res = await axios.post("http://localhost:5000/api/v1/users", {
+        name,
+        email,
+        image: imageURL,
+      });
+
+      console.log("User registered in MongoDB:", res.data);
+
+      if (res.data.insertedId) {
+        const createUserResponse = await createUser(email, password);
+        const userUpdateProfileResponse = await userUpdateProfile(
+          name,
+          imageURL,
+          email
+        );
+
+        toast.success("User successfully created");
+        navigate("/login");
+      }
+    } catch (error) {
+      console.error("Error registering user in MongoDB:", error);
+      toast.error("Failed to create user. Please try again.");
     }
+  };
+
   return (
-    <div className="max-w-2xl mx-auto my-40">
-      <div className="mt-7 bg-white border border-gray-200 rounded-xl shadow-sm">
-        <div className="p-4 sm:p-7">
-          <div className="text-center">
-            <h1 className="block text-2xl font-bold text-gray-800">Register</h1>
-            <p className="mt-2 text-sm text-gray-600">
-              Already have an account?{" "}
-              <Link to='/login'
-                className="text-[#4D96B3] decoration-2 hover:underline font-medium"
-                
-              >
-                Log in here
-              </Link>
-            </p>
-          </div>
-
-          <div className="mt-5">
-
-            <form onSubmit={handleRegister}>
-              <div className="grid gap-y-4">
-                <div>
-                  <label htmlFor="email" className="block text-sm mb-2">
-                    Your Name
+    <div>
+      <Helmet>
+        <title>WellTrackr | Sign Up </title>
+      </Helmet>
+      <body className="font-mono bg-gray-100">
+      {/* Container */}
+      <div className="container mx-auto p-4">
+        <div className="max-w-lg mx-auto bg-white rounded-lg shadow-md">
+          <h2 className="text-2xl font-bold text-center text-gray-800 pt-6">Create an Account</h2>
+          <form className="px-8 py-6" onSubmit={handleRegister}>
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700" htmlFor="name">
+                Your name
+              </label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded focus:outline-none focus:ring focus:border-blue-500"
+                placeholder="Username"
+                required
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700" htmlFor="email">
+                Your email
+              </label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded focus:outline-none focus:ring focus:border-blue-500"
+                placeholder="name@company.com"
+                required
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700" htmlFor="password">
+                Password
+              </label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded focus:outline-none focus:ring focus:border-blue-500"
+                placeholder="******************"
+                required
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700" htmlFor="image">
+                Image
+              </label>
+              <input
+                type="file"
+                name="image"
+                id="image"
+                className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded focus:outline-none focus:ring focus:border-blue-500"
+                placeholder="Image URL"
+                required
+              />
+            </div>
+            <div className="mb-4">
+              <div className="flex items-start">
+                <div className="flex items-center h-5">
+                  <input
+                    id="terms"
+                    aria-describedby="terms"
+                    type="checkbox"
+                    className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring focus:border-blue-500"
+                    required
+                  />
+                </div>
+                <div className="ml-3 text-sm">
+                  <label className="font-light text-gray-700">
+                    I accept the{" "}
+                    <a
+                      className="font-medium text-blue-600 hover:underline"
+                      href="#"
+                    >
+                      Terms and Conditions
+                    </a>
                   </label>
-                  <div className="relative">
-                    <input
-                      type="text"
-                      id="text"
-                      name="name"
-                      className="py-3 px-4 block w-full border rounded-md text-sm focus:border-[#4D96B3] focus:ring-[#4D96B3]"
-                      required
-                      placeholder="Enter your name"
-                    />
-                  </div>
                 </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm mb-2">
-                    Your photo url
-                  </label>
-                  <div className="relative">
-                    <input
-                      type="photo"
-                      id="photo"
-                      name="photo"
-                      className="py-3 px-4 block w-full border rounded-md text-sm focus:border-[#4D96B3] focus:ring-[#4D96B3]"
-                      required
-                      placeholder="Enter your photo url"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm mb-2">
-                    Email address
-                  </label>
-                  <div className="relative">
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      className="py-3 px-4 block w-full border rounded-md text-sm focus:border-[#4D96B3] focus:ring-[#4D96B3]"
-                      required
-                      placeholder="Enter your email"
-                    />
-                    
-                  </div>
-                </div>
-
-                <div>
-                  <label htmlFor="password" className="block text-sm mb-2">
-                    Password
-                  </label>
-                  <div className="relative">
-                    <input
-                      type="password"
-                      id="password"
-                      name="password"
-                      className="py-3 px-4 block w-full border rounded-md text-sm focus:border-[#4D96B3] focus:ring-[#4D96B3]"
-                      required
-                      placeholder="Enter your password"
-                    />
-                  </div>
-                </div>
-
-
-                <div className="flex items-center">
-                  <div className="flex">
-                    <input
-                      id="remember-me"
-                      name="remember-me"
-                      type="checkbox"
-                      className="shrink-0 mt-0.5 rounded text-[#4D96B3] focus:ring-[#4D96B3]"
-                    />
-                  </div>
-                  <div className="ml-3">
-                    <label htmlFor="remember-me" className="text-sm">
-                      I accept the{" "}
-                      <a
-                        className="text-[#4D96B3] decoration-2 hover:underline font-medium"
-                        href="#"
-                      >
-                        Terms and Conditions
-                      </a>
-                    </label>
-                  </div>
-                </div>
-
-                <button
-                  type="submit"
-                  className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-[#4D96B3] text-white hover:bg-[#4D96C5] focus:outline-none focus:ring-2 focus:ring-[#4D96B3] focus:ring-offset-2 transition-all text-sm"
-                >
-                  Register
-                </button>
               </div>
-            </form>
-          </div>
+            </div>
+            <div className="mt-6">
+              <button
+                type="submit"
+                className="w-full px-4 py-2 text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:ring focus:border-blue-500"
+              >
+                Register Account
+              </button>
+            </div>
+          </form>
+          <p className="text-sm text-gray-700 text-center pb-4">
+            Already have an account?{" "}
+            <Link
+              to="/login"
+              className="font-medium text-blue-600 hover:underline"
+            >
+              Sign in here
+            </Link>
+          </p>
         </div>
       </div>
+    </body>
     </div>
   );
 };
 
-export default SignUp;
+export default Register;

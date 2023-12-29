@@ -12,7 +12,7 @@ const Footer = () => {
           >
             <div className="flex items-center justify-center w-12 h-12 rounded-full">
               <img
-                src="/src/assets/Favicon.png"
+                src="https://i.ibb.co/5xZX6GX/Favicon.png"
                 alt="WellTrackr Logo"
                 className="w-20 h-18"
               />
