@@ -21,6 +21,7 @@
     "emailjs-com": "^3.2.0",
     "firebase": "^10.6.0",
     "framer-motion": "^10.16.16",
+    "jsonwebtoken": "^9.0.2",
     "keep-react": "^1.0.1",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",

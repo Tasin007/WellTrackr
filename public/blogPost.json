@@ -1,38 +1,118 @@
-[
-  {
-      "title": "Yoga Basics",
-      "description": "Introductory Yoga class",
-      "members": 0,
-      "imageUrl": "https://i.ibb.co/fXcYsNp/Morning-Yoga.jpg"
+{
+  "name": "John Doe",
+  "profileImage": "https://example.com/john-doe-profile.jpg",
+  "yearsOfExperience": 5,
+  "socialIcons": {
+    "facebook": "https://facebook.com/johndoe",
+    "twitter": "https://twitter.com/johndoe",
+    "instagram": "https://instagram.com/johndoe"
   },
-  {
-      "title": "Advanced Pilates",
-      "description": "Challenging routines for core strength",
-      "members": 0,
-      "imageUrl": "https://i.ibb.co/qgmjm91/Advanced-Pilates.jpg"
+  "availableTimeSlots": [
+    {
+      "day": "Monday",
+      "startTime": "09:00 AM",
+      "endTime": "11:00 AM"
+    },
+    {
+      "day": "Wednesday",
+      "startTime": "02:00 PM",
+      "endTime": "04:00 PM"
+    }
+  ]
+}
+
+// Trainer 2
+{
+  "name": "Alice Smith",
+  "profileImage": "https://example.com/alice-smith-profile.jpg",
+  "yearsOfExperience": 8,
+  "socialIcons": {
+    "facebook": "https://facebook.com/alicesmith",
+    "twitter": "https://twitter.com/alicesmith",
+    "instagram": "https://instagram.com/alicesmith"
   },
-  {
-      "title": "Cardio Kickboxing",
-      "description": "High-energy martial arts-inspired workout",
-      "members": 0,
-      "imageUrl": "https://i.ibb.co/9G0FGJw/Cardio-Kickboxing.jpg"
+  "availableTimeSlots": [
+    {
+      "day": "Tuesday",
+      "startTime": "10:00 AM",
+      "endTime": "12:00 PM"
+    },
+    {
+      "day": "Thursday",
+      "startTime": "03:00 PM",
+      "endTime": "05:00 PM"
+    }
+  ]
+}
+
+// Trainer 3
+{
+  "name": "David Brown",
+  "profileImage": "https://example.com/david-brown-profile.jpg",
+  "yearsOfExperience": 6,
+  "socialIcons": {
+    "facebook": "https://facebook.com/davidbrown",
+    "twitter": "https://twitter.com/davidbrown",
+    "instagram": "https://instagram.com/davidbrown"
   },
-  {
-      "title": "Strength Training",
-      "description": "Build muscle and increase strength",
-      "members": 0,
-      "imageUrl": "https://i.ibb.co/WxzRvp5/Strength-Training.jpg"
+  "availableTimeSlots": [
+    {
+      "day": "Monday",
+      "startTime": "01:00 PM",
+      "endTime": "03:00 PM"
+    },
+    {
+      "day": "Wednesday",
+      "startTime": "10:00 AM",
+      "endTime": "12:00 PM"
+    }
+  ]
+}
+
+// Trainer 4
+{
+  "name": "Emily White",
+  "profileImage": "https://example.com/emily-white-profile.jpg",
+  "yearsOfExperience": 7,
+  "socialIcons": {
+    "facebook": "https://facebook.com/emilywhite",
+    "twitter": "https://twitter.com/emilywhite",
+    "instagram": "https://instagram.com/emilywhite"
   },
-  {
-      "title": "Zumba Dance",
-      "description": "Fun and energetic dance fitness",
-      "members": 0,
-      "imageUrl": "https://i.ibb.co/MVbZz0j/Zumba-Dance.jpg"
+  "availableTimeSlots": [
+    {
+      "day": "Tuesday",
+      "startTime": "11:00 AM",
+      "endTime": "01:00 PM"
+    },
+    {
+      "day": "Thursday",
+      "startTime": "04:00 PM",
+      "endTime": "06:00 PM"
+    }
+  ]
+}
+
+// Trainer 5
+{
+  "name": "Michael Johnson",
+  "profileImage": "https://example.com/michael-johnson-profile.jpg",
+  "yearsOfExperience": 9,
+  "socialIcons": {
+    "facebook": "https://facebook.com/michaeljohnson",
+    "twitter": "https://twitter.com/michaeljohnson",
+    "instagram": "https://instagram.com/michaeljohnson"
   },
-  {
-      "title": "Meditation 101",
-      "description": "Guided sessions for relaxation and mindfulness",
-      "members": 0,
-      "imageUrl": "https://i.ibb.co/98pb3BZ/Meditation.jpg"
-  }
-]
+  "availableTimeSlots": [
+    {
+      "day": "Monday",
+      "startTime": "04:00 PM",
+      "endTime": "06:00 PM"
+    },
+    {
+      "day": "Wednesday",
+      "startTime": "11:00 AM",
+      "endTime": "01:00 PM"
+    }
+  ]
+}
