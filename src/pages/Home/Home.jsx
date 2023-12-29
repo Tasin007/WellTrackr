@@ -1,6 +1,5 @@
 import Banner from "../../components/Banner";
 import About from "./About";
-import BlogSection from "./BlogSection";
 import ContactUs from "./ContactUs";
 import FeaturedActivities from "./FeaturedActivities";
 import FeaturedClass from "./FeaturedClass";
@@ -20,7 +19,6 @@ const Home = () => {
       <About></About>
       <FeaturedClass></FeaturedClass>
       <Testimonial></Testimonial>
-      <BlogSection></BlogSection>
       <ContactUs></ContactUs>
     </div>
   );
