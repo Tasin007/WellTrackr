@@ -10,7 +10,8 @@ import UserDashboard from "../pages/UserDashboard/UserDashboard";
 import Gallery from "../pages/Gallery/Gallery";
 import Trainer from "../pages/Trainer/Trainer";
 import Classes from "../pages/Classes/Classes";
-import Community from "../pages/Community/Community";
+
+import ForumPage from "../pages/Community/ForumPage";
 
 export const router = createBrowserRouter([
   {
@@ -52,7 +53,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/community",
-        element: <Community />,
+        element: <ForumPage />,
       },
       {
         path: "/dashboard",
