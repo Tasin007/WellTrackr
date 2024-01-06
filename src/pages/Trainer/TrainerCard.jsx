@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const TrainerCard = ({ trainer }) => {
   return (
@@ -58,9 +59,9 @@ const TrainerCard = ({ trainer }) => {
         </select>
       </div>
       <div className="mt-6 flex justify-center">
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-300">
+        <Link to={`/trainer/${trainer._id}`} className="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-300">
           Know More
-        </button>
+        </Link>
       </div>
     </div>
   );
