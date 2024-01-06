@@ -4,21 +4,21 @@ import useAxiosSec from "./useAxiosSec";
 
 
 
-const useAgent = () => {
+const useTrainer = () => {
     const {user} = useAuth();
     const axiosSecure = useAxiosSec();
 
-    const {data: isAgent} = useQuery({
-        queryKey: [user?.email, 'isAgent'],
+    const {data: isTrainer} = useQuery({
+        queryKey: [user?.email, 'isTrainer'],
         queryFn: async () => {
-            const res = await axiosSecure.get(`users/agent/${user.email}`);
+            const res = await axiosSecure.get(`/users/trainer/${user.email}`);
             console.log(res.data);
-            return res?.data?.agent;
+            return res?.data?.trainer;
         },
     })
-    return [isAgent]
+    return [isTrainer]
 };
 
-export default useAgent;
+export default useTrainer;
 
 

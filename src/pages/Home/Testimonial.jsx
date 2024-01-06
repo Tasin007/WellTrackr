@@ -6,16 +6,34 @@ import { motion } from "framer-motion"; // Import Framer Motion
 const Testimonial = () => {
   const [testimonialData, setTestimonialData] = useState([]);
 
+  // useEffect(() => {
+  //   // Fetch testimonial data from the public folder
+  //   fetch("/testimonialData.json")
+  //     .then((response) => response.json())
+  //     .then((data) => setTestimonialData(data))
+  //     .catch((error) => console.error("Error fetching testimonial data:", error));
+  // }, []);
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/api/v1/review");
+      if (!response.ok) {
+        throw new Error("Failed to fetch data");
+      }
+
+      const data = await response.json();
+      setTestimonialData(data);
+    } catch (error) {
+      console.error("Error fetching data:", error.message);
+    }
+  };
+
   useEffect(() => {
-    // Fetch testimonial data from the public folder
-    fetch("/testimonialData.json")
-      .then((response) => response.json())
-      .then((data) => setTestimonialData(data))
-      .catch((error) => console.error("Error fetching testimonial data:", error));
+    fetchData();
   }, []);
 
   return (
-    <section className="p-6">
+    <section className="p-6 my-10">
       <div className="container max-w-xl mx-auto">
         <Carousel
           showArrows={false} // Hide navigation arrows

@@ -107,7 +107,7 @@ const Navbar = () => {
                 Classes
               </NavLink>
               <NavLink
-                to="/dashboard"
+                to="dashboard"
                 className="whitespace-nowrap text-base font-medium text-white hover:text-red-500"
               >
                 Dashboard

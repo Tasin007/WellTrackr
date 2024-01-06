@@ -6,6 +6,7 @@ import FeaturedClass from "./FeaturedClass";
 // import FeaturedClasses from "./FeaturedClasses";
 import Testimonial from "./Testimonial";
 import { Helmet } from "react-helmet-async";
+import WriteReview from "./WriteReview";
 
 const Home = () => {
   return (
@@ -20,6 +21,7 @@ const Home = () => {
       <FeaturedClass></FeaturedClass>
       <Testimonial></Testimonial>
       <ContactUs></ContactUs>
+      <WriteReview></WriteReview>
     </div>
   );
 };
