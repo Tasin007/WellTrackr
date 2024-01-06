@@ -1,112 +1,38 @@
 [
   {
-      "name": "John Doe",
-      "profileImage": "https://img.freepik.com/free-photo/portrait-white-man-isolated_53876-40306.jpg?w=740&t=st=1704544949~exp=1704545549~hmac=8e26ee9819838bee234e939648ffd1eb78d82b500eac691efedfe7cd4a50b33b",
-      "yearsOfExperience": 5,
-      "socialIcons": {
-          "facebook": "https://facebook.com/johndoe",
-          "twitter": "https://twitter.com/johndoe",
-          "linkedin": "https://linkedin.com/in/johndoe"
-      },
-      "availableHours": 6 
+    "name": "Basic",
+    "description": "Start your fitness journey with our Basic plan. This plan is designed for beginners who want to establish a solid foundation for their health and wellness. With access to a variety of basic workouts, you'll be able to kickstart your fitness routine and track your progress every step of the way.",
+    "features": [
+      "Access to Basic Workouts",
+      "Daily Progress Tracking",
+      "Nutritional Guidance",
+      "Fitness Tips and Articles"
+    ],
+    "price": 1500
   },
   {
-      "name": "Alice Smith",
-      "profileImage": "https://img.freepik.com/free-photo/portrait-good-looking-nordic-unshaven-man-with-fashionable-hairdo-posing_176420-15809.jpg?w=740&t=st=1704544995~exp=1704545595~hmac=1f557436180953b7bda4863043cb8197a61ef30c30bfb3f446b243e1c6112c0c",
-      "yearsOfExperience": 8,
-      "socialIcons": {
-          "facebook": "https://facebook.com/alicesmith",
-          "twitter": "https://twitter.com/alicesmith",
-          "linkedin": "https://linkedin.com/in/alicesmith"
-      },
-      "availableHours": 4
+    "name": "Pro",
+    "description": "Elevate your fitness game with our Pro plan. Whether you're a seasoned fitness enthusiast or looking to take your workouts to the next level, the Pro plan has you covered. Enjoy access to a wide range of workouts, personalized nutrition tips, and expert guidance from our fitness trainers.",
+    "features": [
+      "Access to Basic and Pro Workouts",
+      "Daily Progress Tracking",
+      "Personalized Nutrition Plans",
+      "Exclusive Fitness Articles",
+      "24/7 Customer Support"
+    ],
+    "price": 3000
   },
   {
-      "name": "David Johnson",
-      "profileImage": "https://img.freepik.com/free-photo/handsome-cheerful-man-with-happy-smile_176420-18028.jpg?w=740&t=st=1704545019~exp=1704545619~hmac=251427de6bc8b99cea3420c9a3d5447cbdb8a12d8718a314d5a65018ba0df0d6",
-      "yearsOfExperience": 10,
-      "socialIcons": {
-          "facebook": "https://facebook.com/davidjohnson",
-          "twitter": "https://twitter.com/davidjohnson",
-          "linkedin": "https://linkedin.com/in/davidjohnson"
-      },
-      "availableHours": 7
-  },
-  {
-      "name": "Emily Brown",
-      "profileImage": "https://img.freepik.com/free-photo/smiling-happy-woman-wearing-denim-jacket-white-shirt_176532-10378.jpg?t=st=1704544932~exp=1704545532~hmac=b04bdaae21bb8c75ac7ca5e7479787a3da3eff010e731764bc32bc4054c2f9d7",
-      "yearsOfExperience": 6,
-      "socialIcons": {
-          "facebook": "https://facebook.com/emilybrown",
-          "twitter": "https://twitter.com/emilybrown",
-          "linkedin": "https://linkedin.com/in/emilybrown"
-      },
-      "availableHours": 5
-  },
-  {
-      "name": "Michael Wilson",
-      "profileImage": "https://img.freepik.com/premium-photo/photo-youth-cheerful-pretty-woman-clever-toothy-smile-representative-economist-attorney-isolated-pink-color-background_525549-8305.jpg?w=740",
-      "yearsOfExperience": 7,
-      "socialIcons": {
-          "facebook": "https://facebook.com/michaelwilson",
-          "twitter": "https://twitter.com/michaelwilson",
-          "linkedin": "https://linkedin.com/in/michaelwilson"
-      },
-      "availableHours": 6
-  },
-  {
-      "name": "Sarah Anderson",
-      "profileImage": "https://img.freepik.com/premium-photo/calm-serious-attractive-girl-looks-straightly-camera-confident-focused-isolated-pink-background_525549-6088.jpg?w=740",
-      "yearsOfExperience": 9,
-      "socialIcons": {
-          "facebook": "https://facebook.com/sarahanderson",
-          "twitter": "https://twitter.com/sarahanderson",
-          "linkedin": "https://linkedin.com/in/sarahanderson"
-      },
-      "availableHours": 5
-  },
-  {
-      "name": "Daniel Martinez",
-      "profileImage": "https://img.freepik.com/free-photo/close-up-portrait-asian-corporate-woman-looking-professional-smiling-camera-wearing-suit-standing-pink-background-copy-space_1258-89206.jpg?t=st=1704545243~exp=1704545843~hmac=8efc664aff20591805a6c766a385d1d451c55121d79864a71c0578ced38ba10f",
-      "yearsOfExperience": 11,
-      "socialIcons": {
-          "facebook": "https://facebook.com/danielmartinez",
-          "twitter": "https://twitter.com/danielmartinez",
-          "linkedin": "https://linkedin.com/in/danielmartinez"
-      },
-      "availableHours": 8
-  },
-  {
-      "name": "Olivia Davis",
-      "profileImage": "https://img.freepik.com/free-photo/portrait-caucasian-woman-smiling_53876-24998.jpg?t=st=1704545243~exp=1704545843~hmac=f7ef8278efa2136e64e27387f635378b10ff5aaf663178fb27c1915d0ffb974f",
-      "yearsOfExperience": 7,
-      "socialIcons": {
-          "facebook": "https://facebook.com/oliviadavis",
-          "twitter": "https://twitter.com/oliviadavis",
-          "linkedin": "https://linkedin.com/in/oliviadavis"
-      },
-      "availableHours": 6
-  },
-  {
-      "name": "James Lee",
-      "profileImage": "https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?w=740&t=st=1704545418~exp=1704546018~hmac=e04214d1ffe4bd45478aef853c2d90e49bc00698e61240b806fcdd26cefe4d5c",
-      "yearsOfExperience": 8,
-      "socialIcons": {
-          "facebook": "https://facebook.com/jameslee",
-          "twitter": "https://twitter.com/jameslee",
-          "linkedin": "https://linkedin.com/in/jameslee"
-      },
-      "availableHours": 7
-  },
-  {
-      "name": "Sophia Wilson",
-      "profileImage": "https://img.freepik.com/free-photo/horizontal-portrait-smiling-happy-young-pleasant-looking-female-wears-denim-shirt-stylish-glasses-with-straight-blonde-hair-expresses-positiveness-poses_176420-13176.jpg?w=740&t=st=1704545508~exp=1704546108~hmac=cee7d05abca2c1503285282a5efa466990c69ac561af26d08f5ed6574eadfb0d",
-      "yearsOfExperience": 6,
-      "socialIcons": {
-          "facebook": "https://facebook.com/sophiawilson",
-          "twitter": "https://twitter.com/sophiawilson",
-          "linkedin": "https://linkedin.com/in/sophiawilson"
-      },
-      "availableHours": 5
+    "name": "Premium",
+    "description": "Experience the pinnacle of fitness with our Premium plan. This comprehensive package provides you with everything you need to achieve your fitness goals. Enjoy unlimited access to all workout programs, personalized meal plans, direct support from certified trainers, and exclusive access to premium fitness content.",
+    "features": [
+      "Access to Basic, Pro, and Premium Workouts",
+      "Daily Progress Tracking",
+      "Personalized Meal Plans",
+      "Direct Trainer Consultations",
+      "Exclusive Premium Content",
+      "Priority Customer Support"
+    ],
+    "price": 5000
   }
 ]

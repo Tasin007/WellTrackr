@@ -31,6 +31,7 @@ import AllTrainers from "../pages/Dashboard/AdminDash/AllTrainers";
 import AppliedTrainers from "../pages/Dashboard/AdminDash/AppliedTrainers";
 import ManageForums from "../pages/Dashboard/AdminDash/ManageForums";
 import TrainerPayments from "../pages/Dashboard/AdminDash/TrainerPayments";
+import BeATrainerPage from "../pages/Trainer/BeATrainerPage";
 
 
 export const router = createBrowserRouter([
@@ -74,6 +75,10 @@ export const router = createBrowserRouter([
       {
         path: "/community",
         element: <ForumPage />,
+      },
+      {
+        path: "/be-a-trainer",
+        element: <BeATrainerPage/>,
       },
     ],
   },
