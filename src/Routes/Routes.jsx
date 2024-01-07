@@ -21,19 +21,17 @@ import TrainerFeedback from "../pages/Dashboard/UserDash/TrainerFeedback";
 import PaymentHistory from "../pages/Dashboard/UserDash/PaymentHistory";
 import ManageSlots from "../pages/Dashboard/TrainerDash/ManageSlots";
 import ManageMembers from "../pages/Dashboard/TrainerDash/ManageMembers";
-import AddForum from "../pages/Dashboard/TrainerDash/AddForum";
 import AddClass from "../pages/Dashboard/TrainerDash/AddClass";
 import MemberFeedback from "../pages/Dashboard/TrainerDash/MemberFeedback";
 import ClassSchedule from "../pages/Dashboard/TrainerDash/ClassSchedule";
 import PaymentDetails from "../pages/Dashboard/TrainerDash/PaymentDetails";
-import AllSubscribers from "../pages/Dashboard/AdminDash/AllSubscribers";
 import AllTrainers from "../pages/Dashboard/AdminDash/AllTrainers";
 import AppliedTrainers from "../pages/Dashboard/AdminDash/AppliedTrainers";
-import ManageForums from "../pages/Dashboard/AdminDash/ManageForums";
-import TrainerPayments from "../pages/Dashboard/AdminDash/TrainerPayments";
+import TrainerPayments from "../pages/Dashboard/AdminDash/AddForum";
 import BeATrainerPage from "../pages/Trainer/BeATrainerPage";
 import TrainerDetails from "../pages/Trainer/TrainerDetails";
 import PlansPage from "../pages/Trainer/PlansPage";
+import SubscriberTable from "../pages/Dashboard/AdminDash/SubscriberTable";
 
 
 export const router = createBrowserRouter([
@@ -107,77 +105,73 @@ export const router = createBrowserRouter([
       },
       // User dashboard
       {
-        path: "activity-log",
+        path: "activitylog",
         element: <ActivityLog />,
       },
       {
-        path: "profile-settings",
+        path: "profilesettings",
         element: <ProfileSettings />,
       },
       {
-        path: "booked-classes",
+        path: "bookedclasses",
         element: <BookedClasses />,
       },
       {
-        path: "forum-participation",
+        path: "forumparticipation",
         element: <ForumParticipation />,
       },
       {
-        path: "trainer-feedback",
+        path: "trainerfeedback",
         element: <TrainerFeedback />,
       },
       {
-        path: "payment-history",
+        path: "paymenthistory",
         element: <PaymentHistory />,
       },
       // Trainer dashboard
       {
-        path: "manage-slots",
+        path: "manageslots",
         element: <ManageSlots />,
       },
       {
-        path: "manage-members",
+        path: "managemembers",
         element: <ManageMembers />,
       },
       {
-        path: "add-forum",
-        element: <AddForum />,
-      },
-      {
-        path: "add-class",
+        path: "addclass",
         element: <AddClass />,
       },
       {
-        path: "member-feedback",
+        path: "memberfeedback",
         element: <MemberFeedback />,
       },
       {
-        path: "class-schedule",
+        path: "classschedule",
         element: <ClassSchedule />,
       },
       {
-        path: "payment-details",
+        path: "paymentdetails",
         element: <PaymentDetails />,
       },
       // Admin dashboard
       {
-        path: "all-subscribers",
-        element: <AllSubscribers />,
+        path: "subscriber",
+        element: <SubscriberTable />,
       },
       {
-        path: "all-trainers",
+        path: "alltrainers",
         element: <AllTrainers />,
       },
       {
-        path: "applied-trainers",
+        path: "appliedtrainers",
         element: <AppliedTrainers />,
       },
+      // {
+      //   path: "manageforums",
+      //   element: <ManageForums />,
+      // },
       {
-        path: "manage-forums",
-        element: <ManageForums />,
-      },
-      {
-        path: "trainer-payments",
+        path: "addforum",
         element: <TrainerPayments />,
       },
     ],

@@ -73,7 +73,7 @@ const Dashboard = () => {
               </li>
               <li>
                 <NavLink
-                  to="/dashboard/allSubscribers"
+                  to="/dashboard/subscriber"
                   className="menu text-base lg:text-2xl p-5 text-white text-left hover:bg-blue-900 hover:text-white"
                 >
                   <PiUsersThreeLight className="text-white text-3xl mr-3" />
@@ -98,7 +98,7 @@ const Dashboard = () => {
                   Applied Trainers
                 </NavLink>
               </li>
-              <li>
+              {/* <li>
                 <NavLink
                   to="/dashboard/manageForums"
                   className="menu text-base lg:text-2xl p-5 text-white text-left hover:bg-blue-900 hover:text-white"
@@ -106,14 +106,14 @@ const Dashboard = () => {
                   <MdOutlineManageHistory className="text-white text-3xl mr-3" />
                   Manage Forums
                 </NavLink>
-              </li>
+              </li> */}
               <li>
                 <NavLink
-                  to="/dashboard/trainerPayments"
+                  to="/dashboard/addforum"
                   className="menu text-base lg:text-2xl p-5 text-white text-left hover:bg-blue-900 hover:text-white"
                 >
-                  <MdOutlinePayments className="text-white text-3xl mr-3" />
-                  Trainer Payments
+                  <MdOutlineAddComment className="text-white text-3xl mr-3" />
+                  Add Forum
                 </NavLink>
               </li>
             </>
