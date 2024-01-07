@@ -33,6 +33,7 @@ import ManageForums from "../pages/Dashboard/AdminDash/ManageForums";
 import TrainerPayments from "../pages/Dashboard/AdminDash/TrainerPayments";
 import BeATrainerPage from "../pages/Trainer/BeATrainerPage";
 import TrainerDetails from "../pages/Trainer/TrainerDetails";
+import PlansPage from "../pages/Trainer/PlansPage";
 
 
 export const router = createBrowserRouter([
@@ -72,6 +73,10 @@ export const router = createBrowserRouter([
       {
         path: "/trainer/:trainerId",
         element: <TrainerDetails />,
+      },
+      {
+        path: "/plans",
+        element: <PlansPage />,
       },
       {
         path: "/classes",

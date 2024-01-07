@@ -1,10 +1,11 @@
-import  { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 const TrainerDetails = () => {
   const { trainerId } = useParams();
   const [trainer, setTrainer] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios.get(`http://localhost:5000/api/v1/trainers/${trainerId}`)
@@ -27,8 +28,8 @@ const TrainerDetails = () => {
   }));
 
   const handleBooking = (slotNumber) => {
-    // Implement your booking logic here
-    console.log(`Booked slot ${slotNumber}`);
+    // Redirect to the plans page with selectedSlot and trainerId as state
+    navigate('/plans', { state: { selectedSlot: slotNumber, trainerId } });
   };
 
   return (
