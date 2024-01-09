@@ -159,7 +159,7 @@ const Dashboard = () => {
                   Class Schedule
                 </NavLink>
               </li>
-              <li>
+              {/* <li>
                 <NavLink
                   to="/dashboard/manageMembers"
                   className="menu text-base lg:text-2xl p-5 text-white text-left hover:bg-blue-900 hover:text-white"
@@ -167,7 +167,7 @@ const Dashboard = () => {
                   <IoPersonAddOutline className="text-white text-3xl mr-3" />
                   Manage Members
                 </NavLink>
-              </li>
+              </li> */}
               <li>
                 <NavLink
                   to="/dashboard/manageSlots"
@@ -177,7 +177,7 @@ const Dashboard = () => {
                   Manage Slots
                 </NavLink>
               </li>
-              <li>
+              {/* <li>
                 <NavLink
                   to="/dashboard/memberFedback"
                   className="menu text-base lg:text-2xl p-5 text-white text-left hover:bg-blue-900 hover:text-white"
@@ -185,8 +185,8 @@ const Dashboard = () => {
                   <MdOutlineFeedback className="text-white text-3xl mr-3" />
                   Member Feedback
                 </NavLink>
-              </li>
-              <li>
+              </li> */}
+              {/* <li>
                 <NavLink
                   to="/dashboard/paymentDetails"
                   className="menu text-base lg:text-2xl p-5 text-white text-left hover:bg-blue-900 hover:text-white"
@@ -194,7 +194,7 @@ const Dashboard = () => {
                   <MdOutlinePayments className="text-white text-3xl mr-3" />
                   Payment Details
                 </NavLink>
-              </li>
+              </li> */}
             </>
           }
 
@@ -247,7 +247,7 @@ const Dashboard = () => {
                   Payment History
                 </NavLink>
               </li>
-              <li>
+              {/* <li>
                 <NavLink
                   to="/dashboard/trainerFeedback"
                   className="menu text-base lg:text-2xl p-5 text-white text-left hover:bg-blue-900 hover:text-white"
@@ -255,7 +255,7 @@ const Dashboard = () => {
                   <MdOutlineFeedback  className="text-white text-3xl mr-3" />
                   Trainer Feedback
                 </NavLink>
-              </li>
+              </li> */}
             </>
           }
 

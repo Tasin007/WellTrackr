@@ -32,6 +32,11 @@ import BeATrainerPage from "../pages/Trainer/BeATrainerPage";
 import TrainerDetails from "../pages/Trainer/TrainerDetails";
 import PlansPage from "../pages/Trainer/PlansPage";
 import SubscriberTable from "../pages/Dashboard/AdminDash/SubscriberTable";
+import EditProfile from "../pages/Dashboard/UserDash/EditProfile";
+import EditClass from "../pages/Dashboard/UserDash/EditClass";
+import MyReview from "../pages/Dashboard/UserDash/MyReview";
+import PaymentSuccess from "../pages/PayRoute/PaymentSuccess";
+import PaymentFail from "../pages/PayRoute/PaymentFail";
 
 
 export const router = createBrowserRouter([
@@ -88,6 +93,14 @@ export const router = createBrowserRouter([
         path: "/be-a-trainer",
         element: <BeATrainerPage/>,
       },
+      {
+        path: "/payment/success/:tranId",
+        element: <PaymentSuccess />,
+    },
+    {
+        path: "/payment/fail/:tranId",
+        element: <PaymentFail />,
+    },
     ],
   },
 
@@ -107,6 +120,14 @@ export const router = createBrowserRouter([
       {
         path: "activitylog",
         element: <ActivityLog />,
+      },
+      {
+        path: "editProfile/:id",
+        element: <EditProfile />,
+      },
+      {
+        path: "myReviews",
+        element: <MyReview />,
       },
       {
         path: "profilesettings",
@@ -140,6 +161,10 @@ export const router = createBrowserRouter([
       {
         path: "addclass",
         element: <AddClass />,
+      },
+      {
+        path: "edit/:id",
+        element: <EditClass />,
       },
       {
         path: "memberfeedback",

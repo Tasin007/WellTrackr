@@ -88,6 +88,8 @@ function AppliedTrainers() {
       });
   };
 
+  
+
   return (
     <div>
       <div className="overflow-x-auto">
